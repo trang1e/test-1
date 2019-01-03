@@ -19,7 +19,6 @@ import com.test.vo.ResultVo;
 @RequestMapping("/test") // springmvc注解，url与此相同即可映射
 public class TestController {
 
-
     @Autowired // @Autowired为spring注解，声明后按类型注入需要的类，spring框架启动时扫描此类注解，初始化有这些注解的类，之后可以直接使用
     private TestService testService;
 
@@ -34,7 +33,7 @@ public class TestController {
         return testService.sayHi();
     }
 
-    @RequestMapping("insert")
+    @RequestMapping(value = "insert", method = RequestMethod.POST)
     public ResultVo insertHelloStatement(@RequestBody Hello hello) {
         try {
             return testService.insert(hello);
